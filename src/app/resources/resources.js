@@ -11,7 +11,18 @@ angular.module('at.resources', [])
      * @return {string} Obfuscated stock reference
      */
     function getObfuscatedStockReference(stockRef, registration){
-      return 'AVRNNDF6H0-OUS2';
+      stockRef = stockRef.split('');
+      var reverseReg = registration.split('').reverse();
+
+      var obfuscated = [];
+
+      reverseReg.forEach(function(regChar, i){
+        obfuscated.push(stockRef[i], regChar);
+      });
+
+      obfuscated.push(stockRef[stockRef.length - 2]);
+
+      return obfuscated.join('');
     }
 
     return {

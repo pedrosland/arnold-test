@@ -12,7 +12,9 @@ describe('at.resources', function(){
   describe('can compute obfuscated stock references', function(){
     // obfuscated stock reference: function parameters (stockReference, registration)
     var tests = {
-      'AVRNNDF6H0-OUS2': ['ARNFH-U-5728', 'SO06DNV']
+      'AVRNNDF6H0-OUS2': ['ARNFH-U-5728', 'SO06DNV'], // example
+      //'ADRRNUB5C0-LUM1': ['ARNBC-U-19231', 'ML05URD'], // from website - this doesn't follow task description
+      'ALRM2': ['ARNFH-U-5728', 'ML'] // small registration
     };
 
     angular.forEach(tests, function(params, expected){
