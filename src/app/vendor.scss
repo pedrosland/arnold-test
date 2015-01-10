@@ -1,1 +1,7 @@
 @import '../../bower_components/foundation/scss/foundation';
+
+// TODO: work out if this is really how this is supposed to work (mixins aren't available in index.scss)
+
+.reader-only {
+  @include element-invisible;
+}
