@@ -1,12 +1,12 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="large-image">
-      <img ng-src="{{currentImage}}" />
+      <img ng-src="{{currentImageUrl}}" />
     </div>
 
     <ul class="inline-list thumbs">
       <li class="th" ng-repeat="url in imageUrls">
-        <a href="#">
+        <a href ng-click="setCurrentImage(url)">
           <img ng-src="{{url}}" alt="Vehicle image" />
         </a>
       </li>
