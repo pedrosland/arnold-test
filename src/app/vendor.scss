@@ -5,3 +5,28 @@
 .reader-only {
   @include element-invisible;
 }
+
+//--------------
+// Vehicle
+//--------------
+
+// Thumbs
+.thumbs{
+  overflow: visible;
+  width: fit-content;
+  margin: 0 auto;
+
+  li {
+    float: left;
+    margin: 1px 0;
+    position: relative; // for z-index
+
+    &:hover {
+      z-index: 1; // show the box-shadow over the other thumbs
+    }
+  }
+}
+
+.th{
+  width: 130px;
+}

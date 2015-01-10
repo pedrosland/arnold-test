@@ -31,11 +31,16 @@ angular.module('at.resources', [])
        * Get image URLs for a vehicle
        *
        * @param obfuscatedStockReference {String}
+       * @param size                     {Number=}
        * @returns {String[]} URLs
        */
-      getImageUrls: function(obfuscatedStockReference){
+      getImageUrls: function(obfuscatedStockReference, size){
         var sizes = [350, 800];
         var cameras = ['f', 'i', 'r', '4', '5', '6'];
+
+        if(size){
+          sizes = [size];
+        }
 
         return sizes.map(function(size){
           return cameras.map(function(camera){

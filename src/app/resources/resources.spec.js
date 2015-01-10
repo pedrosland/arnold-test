@@ -65,5 +65,43 @@ describe('at.resources', function(){
 
   });
 
+  it('returns a list of image URLs of the requested size', function(){
+    // obfuscated stock reference: array of image URLs
+    var stockRef = 'AKRNNCB6F5-WUS1';
+    var images350 = [
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/350/i/',
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/350/6/',
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/350/f/',
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/350/4/',
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/350/5/',
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/350/r/'
+    ];
+    var images800 = [
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/800/4/',
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/800/i/',
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/800/6/',
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/800/f/',
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/800/5/',
+      'http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/800/r/'
+    ];
+
+    var result = atResource.getImageUrls(stockRef, 350);
+
+    expect(result.length).toBe(images350.length);
+
+    images350.forEach(function(expectedItem){
+      expect(result).toContain(expectedItem);
+    });
+
+    result = atResource.getImageUrls(stockRef, 800);
+
+    expect(result.length).toBe(images800.length);
+
+    images800.forEach(function(expectedItem){
+      expect(result).toContain(expectedItem);
+    });
+
+  });
+
 
 });

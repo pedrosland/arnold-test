@@ -1,7 +1,16 @@
 <div class="row">
   <div class="large-12 columns">
+    <div class="large-image">
+      <img ng-src="{{currentImage}}" />
+    </div>
 
-    {{stockRef}} {{registration}}
+    <ul class="inline-list thumbs">
+      <li class="th" ng-repeat="url in imageUrls">
+        <a href="#">
+          <img ng-src="{{url}}" alt="Vehicle image" />
+        </a>
+      </li>
+    </ul>
 
   </div>
 </div>
