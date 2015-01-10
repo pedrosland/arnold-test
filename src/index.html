@@ -6,13 +6,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    
+
     <!-- build:css({.tmp,src}) styles/vendor.css -->
     <link rel="stylesheet" href="app/vendor.css">
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
-    
+
 
     <!-- build:css({.tmp,src}) styles/app.css -->
     <!-- inject:css -->
@@ -29,7 +29,13 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ng-view></div>
+    <div class="container">
+
+      <div ng-include="'components/navbar/navbar.html'"></div>
+
+      <div ng-view></div>
+
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
