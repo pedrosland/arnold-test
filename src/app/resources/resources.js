@@ -36,7 +36,7 @@ angular.module('at.resources', [])
        */
       getImageUrls: function(obfuscatedStockReference, size){
         var sizes = [350, 800];
-        var cameras = ['f', 'i', 'r', '4', '5', '6'];
+        var cameras = ['f', 'r', 'i', '4', '5', '6'];
 
         if(size){
           sizes = [size];
