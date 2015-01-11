@@ -8,6 +8,8 @@ angular.module('arnoldTest')
 
     $scope.currentImageUrl = '';
 
+    $scope.registration = $routeParams.registration;
+
     /**
      * Set the URL of the full size image
      *
@@ -17,5 +19,13 @@ angular.module('arnoldTest')
       // Assume that the full sized image is available if the thumb is available
       $scope.currentImageUrl = url.replace(/\/350\//, '/800/');
     };
+
+    $scope.setFirstLoadedUrl = function(url){
+      if(!$scope.currentImageUrl) {
+        $scope.currentImageUrl = atResource.getLargeImageUrl(url);
+      }
+    };
+
+    $scope.data = {};
 
   });

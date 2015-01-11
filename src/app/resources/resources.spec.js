@@ -103,5 +103,11 @@ describe('at.resources', function(){
 
   });
 
+  it('should convert between links for small to large images', function(){
+    var result = atResource.getLargeImageUrl('http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/350/i/');
+
+    expect(result).toBe('http://imagecache.arnoldclark.com/imageserver/AKRNNCB6F5-WUS1/800/i/');
+  });
+
 
 });

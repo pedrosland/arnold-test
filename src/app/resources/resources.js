@@ -49,6 +49,16 @@ angular.module('at.resources', [])
         }).reduce(function(result, sizeArr){
           return Array.prototype.concat.call(result, sizeArr);
         }, []);
+      },
+
+      /**
+       * Change small image URL (350 width) to large image URL (800 width)
+       *
+       * @param url {string}
+       * @returns   {string}
+       */
+      getLargeImageUrl: function(url){
+        return url.replace(/\/350\//, '/800/');
       }
     };
 
