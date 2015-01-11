@@ -1,8 +1,12 @@
+BASE_URL = 'http://localhost:3000/';
+
 // An example configuration file.
 exports.config = {
   // The address of a running selenium server.
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   //seleniumServerJar: deprecated, this should be set on node_modules/protractor/config.json
+
+  baseUrl: BASE_URL,
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {

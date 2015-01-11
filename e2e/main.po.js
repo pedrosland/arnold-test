@@ -1,17 +1,24 @@
-/**
- * This file uses the Page Object pattern to define the main page for tests
- * https://docs.google.com/presentation/d/1B6manhG0zEXkC-H-tPo2vwU06JhL8w9-XCF9oehXzAQ
- */
-
 'use strict';
 
-var MainPage = function() {
+function MainPage() {
+  this.url = '/';
+  this.goTo = function(){
+    browser.get(this.url);
+  };
 
-  this.jumbEl = element(by.css('.panel'));
+  this.stockRef = element(by.name('stockRef'));
+  this.registration = element(by.name('registration'));
 
-  this.h1El = this.jumbEl.element(by.css('h1'));
-  this.imgEl = this.jumbEl.element(by.css('img'));
-  this.thumbnailEls = element(by.css('body')).all(by.repeater('awesomeThing in awesomeThings'));
-};
+  this.submitButton = element(by.css('[value="Search for car"]'));
+
+  this.fillForm = function fillForm(stockRef, registration) {
+    this.stockRef.sendKeys(stockRef);
+    this.registration.sendKeys(registration);
+  };
+
+  this.submit = function submit(){
+    this.submitButton.click();
+  };
+}
 
 module.exports = new MainPage();

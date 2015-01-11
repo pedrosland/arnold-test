@@ -1,21 +1,35 @@
 'use strict';
 
-describe('The main view', function () {
+describe('The main page', function () {
   var page;
 
   beforeEach(function () {
-    browser.get('http://localhost:3000/index.html');
     page = require('./main.po');
+    page.goTo();
   });
 
-  it('should include jumbotron with correct data', function() {
-    expect(page.h1El.getText()).toBe('\'Allo, \'Allo!');
-    expect(page.imgEl.getAttribute('src')).toMatch(/assets\/images\/yeoman.png$/);
-    expect(page.imgEl.getAttribute('alt')).toBe('I\'m Yeoman');
+  it('should show a form and allow users to submit vehicle data', function() {
+    expect(page.stockRef.isPresent()).toBe(true);
+
+    page.fillForm('ARNFH-U-5728', 'SK55XDH');
+
+    page.submit();
+
+    expect(browser.getCurrentUrl()).toBe(BASE_URL + '#/vehicle/ARNFH-U-5728/SK55XDH');
   });
 
-  it('list more than 5 awesome things', function () {
-    expect(page.thumbnailEls.count()).toBeGreaterThan(5);
+  it('show not submit if a required field is empty', function () {
+    page.fillForm('', 'SK55XDH');
+
+    page.submit();
+
+    page.registration.clear();
+
+    page.fillForm('ARNFH-U-5728', '');
+
+    page.submit();
+
+    expect(browser.getCurrentUrl()).toBe(BASE_URL + '#/');
   });
 
 });
